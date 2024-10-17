@@ -47,7 +47,7 @@ export function LandingPageComponent() {
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <BarChart className="text-[#2c4a3e]" size={32} />
-            <span className="text-xl font-bold text-[#2c4a3e]">Venture Planner</span>
+            <span className="text-xl font-bold text-[#2c4a3e]">aallie</span>
           </div>
           <nav className="hidden md:flex space-x-6">
             <a href={ctaLink} className="text-[#2c4a3e] hover:text-[#f0c14b]">Features</a>
@@ -208,7 +208,7 @@ export function LandingPageComponent() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <BarChart className="text-[#f0c14b] inline-block mr-2" size={24} />
-              <span className="text-xl font-bold">Venture Planner</span>
+              <span className="text-xl font-bold">aallie</span>
             </div>
             <div className="flex space-x-4">
               <a href={ctaLink} className="hover:text-[#f0c14b]">Facebook</a>
@@ -218,7 +218,7 @@ export function LandingPageComponent() {
             </div>
           </div>
           <div className="mt-8 text-center">
-            <p>&copy; 2024 Venture Planner. All rights reserved.</p>
+            <p>&copy; 2024 aallie. All rights reserved.</p>
           </div>
         </div>
       </footer>
