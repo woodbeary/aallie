@@ -61,27 +61,23 @@ export function LandingPageComponent() {
           variants={fadeInUpVariants}
         >
           <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-1/2 text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#2c4a3e]">
-                  Build Financial Plans in Minutes
-                </h1>
-                <p className="text-xl mb-8 text-[#4a7a69]">
-                  AI-powered, customized financial forecasts. No financial expertise required.
-                </p>
-                <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
-                  Create Your Financial Plan Now
-                </Button>
-              </div>
-              <div className="md:w-1/2 mt-8 md:mt-0">
-                <Image
-                  src="/1.png"
-                  alt="Financial planning dashboard"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src="/3.png"
+                alt="Financial success"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-xl mb-8"
+              />
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#2c4a3e] text-center">
+                Build Financial Plans in Minutes
+              </h1>
+              <p className="text-xl mb-8 text-[#4a7a69] text-center max-w-2xl">
+                AI-powered, customized financial forecasts. No financial expertise required.
+              </p>
+              <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
+                Create Your Financial Plan Now
+              </Button>
             </div>
           </div>
         </motion.section>
@@ -116,7 +112,7 @@ export function LandingPageComponent() {
         </motion.section>
 
         <motion.section 
-          className="py-16"
+          className="py-16 bg-gradient-to-r from-[#e8f0ed] to-white"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -127,15 +123,15 @@ export function LandingPageComponent() {
               Visualize Your Financial Future
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-[#2c4a3e]">Revenue Growth</h3>
                 <CustomLineChart data={mockLineData} />
               </div>
-              <div>
+              <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-[#2c4a3e]">Product Performance</h3>
                 <CustomBarChart data={mockBarData} />
               </div>
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-[#2c4a3e]">Revenue vs Expenses</h3>
                 <CustomAreaChart data={mockAreaData} />
               </div>
@@ -182,32 +178,19 @@ export function LandingPageComponent() {
           viewport={{ once: true }}
           variants={fadeInUpVariants}
         >
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-1/2">
-                <h2 className="text-3xl font-bold mb-6">Ready to Plan Your Financial Future?</h2>
-                <p className="text-xl mb-8">Join thousands of businesses who've already created winning financial plans.</p>
-                <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
-                  Create Your Financial Plan Now
-                </Button>
-              </div>
-              <div className="md:w-1/2 mt-8 md:mt-0 md:ml-8">
-                <Image
-                  src="/3.png"
-                  alt="Financial success"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
-              </div>
-            </div>
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl font-bold mb-6">Ready to Plan Your Financial Future?</h2>
+            <p className="text-xl mb-8">Join thousands of businesses who've already created winning financial plans.</p>
+            <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
+              Create Your Financial Plan Now
+            </Button>
           </div>
         </motion.section>
       </main>
 
       <footer className="bg-[#2c4a3e] text-white py-6">
         <div className="container mx-auto px-6 text-center">
-          <p>&copy; 2023 aallie.com. All rights reserved.</p>
+          <p>&copy; 2024 aallie.com. All rights reserved.</p>
         </div>
       </footer>
     </div>
