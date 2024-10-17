@@ -20,6 +20,7 @@ export function CustomLineChart({ data }: ChartProps) {
       showAnimation={true}
       showTooltip={true}
       showLegend={false}
+      curveType="monotone"
     />
   )
 }

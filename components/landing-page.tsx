@@ -1,7 +1,7 @@
 'use client'
 
 import { Button } from "@/components/ui/button"
-import { ChevronRight, Star, Users, BarChart, PieChart, DollarSign, FileText } from "lucide-react"
+import { ChevronRight, BarChart, PieChart, DollarSign, FileText } from "lucide-react"
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
 import { CustomLineChart, CustomBarChart, CustomAreaChart } from "@/components/ui/charts"
@@ -9,6 +9,8 @@ import { motion } from "framer-motion"
 
 export function LandingPageComponent() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
+
+  const ctaLink = 'https://aallie-v1.onrender.com'
 
   const mockLineData = [
     { name: 'Jan', value: 100 },
@@ -40,44 +42,57 @@ export function LandingPageComponent() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#e8f0ed] to-white">
-      <nav className="bg-white shadow-md py-4 px-6">
+    <div className="flex flex-col min-h-screen bg-[#f5f7f6]">
+      <header className="bg-white shadow-sm py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <BarChart className="text-[#2c4a3e]" size={32} />
-            <span className="text-xl font-bold text-[#2c4a3e]">aallie.com</span>
+            <span className="text-xl font-bold text-[#2c4a3e]">Venture Planner</span>
           </div>
-          <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
-            Start Free Trial
-          </Button>
+          <nav className="hidden md:flex space-x-6">
+            <a href={ctaLink} className="text-[#2c4a3e] hover:text-[#f0c14b]">Features</a>
+            <a href={ctaLink} className="text-[#2c4a3e] hover:text-[#f0c14b]">Support</a>
+            <a href={ctaLink} className="text-[#2c4a3e] hover:text-[#f0c14b]">Pricing</a>
+            <a href={ctaLink} className="text-[#2c4a3e] hover:text-[#f0c14b]">About</a>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <a href={ctaLink} className="text-[#2c4a3e] hover:text-[#f0c14b]">Login</a>
+            <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] font-bold" onClick={() => window.location.href = ctaLink}>
+              Start Free Trial
+            </Button>
+          </div>
         </div>
-      </nav>
+      </header>
 
       <main className="flex-grow">
         <motion.section 
-          className="py-20"
+          className="py-20 bg-gradient-to-b from-[#f5f7f6] to-white"
           initial="hidden"
           animate="visible"
           variants={fadeInUpVariants}
         >
           <div className="container mx-auto px-6">
-            <div className="flex flex-col items-center">
-              <Image
-                src="/3.png"
-                alt="Financial success"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-xl mb-8"
-              />
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#2c4a3e] text-center">
-                Build Financial Plans in Minutes
-              </h1>
-              <p className="text-xl mb-8 text-[#4a7a69] text-center max-w-2xl">
-                AI-powered, customized financial forecasts. No financial expertise required.
-              </p>
-              <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
-                Create Your Financial Plan Now
-              </Button>
+            <div className="flex flex-col md:flex-row items-center">
+              <div className="md:w-1/2 mb-8 md:mb-0">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-[#2c4a3e]">
+                  AI Enhanced Business Plans
+                </h1>
+                <p className="text-xl mb-8 text-[#4a7a69]">
+                  Transform your vision into a detailed plan using our cutting-edge platform. Just answer the questions, we'll do the rest.
+                </p>
+                <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = ctaLink}>
+                  Start Free Trial
+                </Button>
+              </div>
+              <div className="md:w-1/2">
+                <Image
+                  src="/3.png"
+                  alt="AI Enhanced Business Plans"
+                  width={600}
+                  height={400}
+                  className="rounded-lg shadow-xl"
+                />
+              </div>
             </div>
           </div>
         </motion.section>
@@ -96,12 +111,12 @@ export function LandingPageComponent() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 { title: "Answer Questions", icon: ChevronRight, description: "Our AI guides you through simple financial questions" },
-                { title: "AI Generates Plan", icon: BarChart, description: "We create a custom financial plan tailored to your business" },
-                { title: "Get Insights", icon: DollarSign, description: "Use your professional financial plan to make informed decisions" }
+                { title: "AI Generates Plan", icon: BarChart, description: "We create a custom business plan tailored to your needs" },
+                { title: "Get Insights", icon: DollarSign, description: "Use your professional plan to make informed decisions" }
               ].map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="bg-[#e8f0ed] rounded-full p-4 inline-block mb-4">
-                    <step.icon className="text-[#2c4a3e]" size={32} />
+                <div key={index} className="text-center bg-[#f5f7f6] p-6 rounded-lg shadow-md">
+                  <div className="bg-[#2c4a3e] rounded-full p-4 inline-block mb-4">
+                    <step.icon className="text-[#f0c14b]" size={32} />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-[#2c4a3e]">{step.title}</h3>
                   <p className="text-[#4a7a69]">{step.description}</p>
@@ -112,7 +127,7 @@ export function LandingPageComponent() {
         </motion.section>
 
         <motion.section 
-          className="py-16 bg-gradient-to-r from-[#e8f0ed] to-white"
+          className="py-16 bg-[#f5f7f6]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -140,7 +155,7 @@ export function LandingPageComponent() {
         </motion.section>
 
         <motion.section 
-          className="py-16"
+          className="py-16 bg-white"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -157,9 +172,9 @@ export function LandingPageComponent() {
                 { title: "Customized Strategies", icon: ChevronRight, description: "Tailored financial advice for your specific industry" },
                 { title: "Export Options", icon: DollarSign, description: "Download as PDF or Excel spreadsheet" }
               ].map((feature, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="bg-[#e8f0ed] rounded-full p-2 mr-4">
-                    <feature.icon className="text-[#2c4a3e]" size={24} />
+                <div key={index} className="flex items-start bg-[#f5f7f6] p-6 rounded-lg">
+                  <div className="bg-[#2c4a3e] rounded-full p-2 mr-4">
+                    <feature.icon className="text-[#f0c14b]" size={24} />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-[#2c4a3e]">{feature.title}</h3>
@@ -181,16 +196,30 @@ export function LandingPageComponent() {
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Plan Your Financial Future?</h2>
             <p className="text-xl mb-8">Join thousands of businesses who've already created winning financial plans.</p>
-            <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = 'https://aallie-v1.onrender.com'}>
+            <Button className="bg-[#f0c14b] text-[#2c4a3e] hover:bg-[#e6b53d] text-lg px-8 py-3 rounded-full shadow-lg font-bold" onClick={() => window.location.href = ctaLink}>
               Create Your Financial Plan Now
             </Button>
           </div>
         </motion.section>
       </main>
 
-      <footer className="bg-[#2c4a3e] text-white py-6">
-        <div className="container mx-auto px-6 text-center">
-          <p>&copy; 2024 aallie.com. All rights reserved.</p>
+      <footer className="bg-[#2c4a3e] text-white py-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <BarChart className="text-[#f0c14b] inline-block mr-2" size={24} />
+              <span className="text-xl font-bold">Venture Planner</span>
+            </div>
+            <div className="flex space-x-4">
+              <a href={ctaLink} className="hover:text-[#f0c14b]">Facebook</a>
+              <a href={ctaLink} className="hover:text-[#f0c14b]">Instagram</a>
+              <a href={ctaLink} className="hover:text-[#f0c14b]">LinkedIn</a>
+              <a href={ctaLink} className="hover:text-[#f0c14b]">YouTube</a>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <p>&copy; 2024 Venture Planner. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
