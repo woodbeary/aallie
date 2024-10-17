@@ -1,6 +1,6 @@
 'use client'
 
-import { LineChart, Line } from "@tremor/react"
+import { LineChart } from "@tremor/react"
 
 interface LineChartProps {
   data: { name: string; value: number }[]
@@ -15,8 +15,7 @@ export function CustomLineChart({ data }: LineChartProps) {
       categories={["value"]}
       colors={["#2c4a3e"]}
       yAxisWidth={40}
-    >
-      <Line />
-    </LineChart>
+      showAnimation={true}
+    />
   )
 }

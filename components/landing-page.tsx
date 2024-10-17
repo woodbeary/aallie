@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button"
 import { ChevronRight, Star, Users, BarChart, PieChart, DollarSign, FileText } from "lucide-react"
 import { useMediaQuery } from 'react-responsive'
 import Image from 'next/image'
-import { CustomLineChart } from "@/components/ui/line-chart"
+import { CustomLineChart, CustomBarChart, CustomAreaChart } from "@/components/ui/charts"
+import { motion } from "framer-motion"
 
 export function LandingPageComponent() {
   const isMobile = useMediaQuery({ maxWidth: 767 })
 
-  const mockData = [
+  const mockLineData = [
     { name: 'Jan', value: 100 },
     { name: 'Feb', value: 300 },
     { name: 'Mar', value: 200 },
@@ -17,6 +18,26 @@ export function LandingPageComponent() {
     { name: 'May', value: 400 },
     { name: 'Jun', value: 600 },
   ]
+
+  const mockBarData = [
+    { name: 'Product A', sales: 900, profit: 400 },
+    { name: 'Product B', sales: 1200, profit: 600 },
+    { name: 'Product C', sales: 1500, profit: 800 },
+  ]
+
+  const mockAreaData = [
+    { date: '2023-01-01', revenue: 2000, expenses: 1800 },
+    { date: '2023-02-01', revenue: 2200, expenses: 1900 },
+    { date: '2023-03-01', revenue: 2400, expenses: 2000 },
+    { date: '2023-04-01', revenue: 2600, expenses: 2100 },
+    { date: '2023-05-01', revenue: 2800, expenses: 2200 },
+    { date: '2023-06-01', revenue: 3000, expenses: 2300 },
+  ]
+
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#e8f0ed] to-white">
@@ -33,7 +54,12 @@ export function LandingPageComponent() {
       </nav>
 
       <main className="flex-grow">
-        <section className="py-20">
+        <motion.section 
+          className="py-20"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUpVariants}
+        >
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 text-center md:text-left">
@@ -58,9 +84,15 @@ export function LandingPageComponent() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="py-16 bg-white">
+        <motion.section 
+          className="py-16 bg-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+        >
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold mb-10 text-center text-[#2c4a3e]">
               How It Works
@@ -81,31 +113,43 @@ export function LandingPageComponent() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="py-16">
+        <motion.section 
+          className="py-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+        >
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold mb-10 text-center text-[#2c4a3e]">
               Visualize Your Financial Future
             </h2>
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-1/2">
-                <Image
-                  src="/2.png"
-                  alt="Financial visualization"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-xl"
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-4 text-[#2c4a3e]">Revenue Growth</h3>
+                <CustomLineChart data={mockLineData} />
               </div>
-              <div className="md:w-1/2 mt-8 md:mt-0 md:ml-8">
-                <CustomLineChart data={mockData} />
+              <div>
+                <h3 className="text-xl font-semibold mb-4 text-[#2c4a3e]">Product Performance</h3>
+                <CustomBarChart data={mockBarData} />
+              </div>
+              <div className="md:col-span-2">
+                <h3 className="text-xl font-semibold mb-4 text-[#2c4a3e]">Revenue vs Expenses</h3>
+                <CustomAreaChart data={mockAreaData} />
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="py-16">
+        <motion.section 
+          className="py-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+        >
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold mb-10 text-center text-[#2c4a3e]">
               What You'll Get
@@ -129,9 +173,15 @@ export function LandingPageComponent() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section className="py-16 bg-[#2c4a3e] text-white">
+        <motion.section 
+          className="py-16 bg-[#2c4a3e] text-white"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+        >
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2">
@@ -152,7 +202,7 @@ export function LandingPageComponent() {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       <footer className="bg-[#2c4a3e] text-white py-6">
